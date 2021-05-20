@@ -5,7 +5,8 @@
     "client-install": "npm install --prefix client",
     "start": "nodemon server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "build": "cd client/ && npm install && npm run build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
