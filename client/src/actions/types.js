@@ -1,0 +1,8 @@
+export const SET_AUTH_LOADING = 'SET_AUTH_LOADING';
+export const REMOVE_AUTH_LOADING = 'REMOVE_AUTH_LOADING';
+
+export const GET_EVENTS = 'GET_EVENTS';
+export const GET_EVENT = 'GET_EVENT';
+export const DELETE_EVENT = 'DELETE_EVENT';
+export const EVENT_LOADING = 'EVENT_LOADING';
+
