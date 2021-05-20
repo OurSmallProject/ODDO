@@ -15,47 +15,50 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 
 mongoose
-    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch((err) => console.log(err));
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE, HEAD');
 
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE, HEAD');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', true);
 
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    next();
+  next();
 });
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(passport.initialize());
-require('./config/passport')(passport);
+require('./config/passport');
+app.use(express.json());
 
 app.use('/api/users', users);
 app.use('/api/events', events);
 app.use('/api/events', comments);
 app.use('/api/profile', profile);
 app.use('/api/notification', notification);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'));
-    
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
 let port = 8081;
 
-if(process.env.NODE_ENV === 'production'){
-    port = process.env.PORT;
+if (process.env.NODE_ENV === 'production') {
+  port = process.env.PORT;
 }
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

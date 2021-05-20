@@ -2,7 +2,7 @@
   "name": "ODDO",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client"
   },

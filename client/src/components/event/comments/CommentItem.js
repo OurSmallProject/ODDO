@@ -8,41 +8,40 @@ import ClearIcon from '@material-ui/icons/Clear';
 
 import { deleteComment } from '../../../actions/eventActions';
 
-class CommentItem extends Component{
-    onDeleteClick(eventId, commentId){
-      this.props.deleteComment(eventId, commentId);
-    }
-    
-    render(){
-        const {comment, auth} = this.props;
-        const {event} = this.props.events;
-        
-        return(
-            <Paper elevation={3}>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar component={Link} to={`/profile/${comment.user}`}>
-                    <PersonIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={comment.text} secondary={<span>{comment.name} - <Moment fromNow>{comment.date}</Moment></span>} />
-                {event.user._id === auth.user.id ? (
-                  <IconButton
-                    aria-label="delete"
-                    onClick={this.onDeleteClick.bind(this, event._id, comment._id)}
-                    color="secondary">
-                    <ClearIcon fontSize="inherit" />
-                  </IconButton>
-                 ) : null}
-              </ListItem>
-            </Paper>
-        );
-    }
+class CommentItem extends Component {
+  onDeleteClick(eventId, commentId) {
+    this.props.deleteComment(eventId, commentId);
+  }
+
+  render() {
+    const { comment, auth } = this.props;
+    const { event } = this.props.events;
+
+    return (
+      <Paper elevation={3}>
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar component={Link} to={`/profile/${comment.user}`}>
+              <PersonIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={comment.text}
+            secondary={
+              <span>
+                {comment.name} - <Moment fromNow>{comment.date}</Moment>
+              </span>
+            }
+          />
+        </ListItem>
+      </Paper>
+    );
+  }
 }
 
-const mapStateToProps = state => ({
-    auth: state.auth,
-    events: state.events
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  events: state.events,
 });
 
-export default withRouter(connect(mapStateToProps, {deleteComment})(CommentItem));
+export default withRouter(connect(mapStateToProps, { deleteComment })(CommentItem));
