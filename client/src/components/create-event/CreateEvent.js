@@ -9,7 +9,7 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import SelectFieldGroup from '../common/SelectFieldGroup';
 import { createEvent } from '../../actions/eventActions';
 
-const sportList = ["Badminton", "Tennis", "Volleyball", "Basketball", "Baseball", "Running", "Table tennis", "Football", "Soccer"];
+const sportList = ["Chess", "Tennis", "Volleyball", "Basketball", "Mafia", "Karaoke", "Table tennis", "Party", "Soccer"];
 
 class CreateEvent extends Component{
     constructor(props){

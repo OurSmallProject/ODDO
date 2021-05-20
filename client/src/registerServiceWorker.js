@@ -14,6 +14,7 @@ export default function register() {
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {
 
+
       return;
     }
 
@@ -22,6 +23,7 @@ export default function register() {
 
       if (isLocalhost) {
         checkValidServiceWorker(swUrl);
+
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
@@ -46,6 +48,7 @@ function registerValidSW(swUrl) {
             if (navigator.serviceWorker.controller) {
               console.log('New content is available; please refresh.');
             } else {
+
               console.log('Content is cached for offline use.');
             }
           }
@@ -60,16 +63,19 @@ function registerValidSW(swUrl) {
 function checkValidServiceWorker(swUrl) {
   fetch(swUrl)
     .then(response => {
+
       if (
         response.status === 404 ||
         response.headers.get('content-type').indexOf('javascript') === -1
       ) {
+
         navigator.serviceWorker.ready.then(registration => {
           registration.unregister().then(() => {
             window.location.reload();
           });
         });
       } else {
+
         registerValidSW(swUrl);
       }
     })

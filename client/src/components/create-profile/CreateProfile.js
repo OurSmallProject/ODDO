@@ -73,13 +73,13 @@ class CreateProfile extends Component{
                                     error={errors.location}
                                 />
                                 <TextFieldGroup
-                                    label="Favorite Sports *"
-                                    placeholder="Favorite Sports"
+                                    label="Favorite types events *"
+                                    placeholder="Favorite Events"
                                     name="favoriteSport"
                                     value={this.state.favoriteSport}
                                     onChange={this.onChange}
                                     error={errors.favoriteSport}
-                                    info="Please use comma separated values (eg. Baseball,Tennis,Football)"
+                                    info="Please use comma separated values (eg. Chess,Paintball,Football)"
                                 />
                                 <TextAreaFieldGroup
                                     label="Bio"

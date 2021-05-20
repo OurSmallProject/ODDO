@@ -59,12 +59,12 @@ class EventItem extends Component{
                     <Grid item xs={12} md={6}>
                         <Grid container spacing={6}>
                             <Grid item xs={6}>
-                                <span className={styles.labelInfo}>Type of Sport</span>
+                                <span className={styles.labelInfo}>Type of Event</span>
                                 <Typography variant="h6" paragraph>{event.typeofsport}</Typography>
                             </Grid>
                             
                             <Grid item xs={6}>
-                                <span className={styles.labelInfo}>Number of Player</span>
+                                <span className={styles.labelInfo}>Number of People</span>
                                 <Box display="flex">
                                     <GroupIcon className={styles.icon} />
                                     <Typography variant="h6" paragraph>{event.numberofplayer}</Typography>
@@ -136,7 +136,7 @@ class EventItem extends Component{
                         color="primary" >
                         {auth.isAuthenticated ? "Join This Event" : "Login to Join"}
                     </Button>
-                    <p className="marginL-1">{event.numberofplayer - event.listofplayer.length} spots left</p>
+                    <p className="marginL-1">{event.numberofplayer - event.listofplayer.length} events left</p>
                 </Box>
                 <div className="marginT-1">
                     { event.listofplayer.map((player, index) => {

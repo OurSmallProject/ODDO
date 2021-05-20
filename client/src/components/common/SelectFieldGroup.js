@@ -23,7 +23,7 @@ const SelectFieldGroup = ({
                 error={error ? true : false}
             >
             <MenuItem value={value}>
-                <em>Choose Sport Type</em>
+                <em>Choose Event Type</em>
             </MenuItem>
             {sportList.map(sport => {
                 return <MenuItem key={sport} value={sport}>{sport}</MenuItem>
