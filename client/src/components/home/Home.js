@@ -55,8 +55,8 @@ class Home extends Component{
         <Container maxWidth="lg">
           <header className={header}>
             <div className={header__text}>
-              <h1>Search for players to play sport</h1>
-              <p>Pick a day, time, and place to play any sports with someone or group of people</p>
+              <h1>Search for people to join the event</h1>
+              <p>Pick a day, time, and place to meet with someone or group of people</p>
               {isAuthenticated ? userLinks : guestLinks}
             </div>
             <img src={LandingImg} alt="Landing" className={header__img}/>
@@ -67,12 +67,12 @@ class Home extends Component{
               <div className={howItWork__container}>
                 <img src={StepsImg} alt="HowitworkImg2" />
                 <div className={steps__text}>
-                  <h2>It easy to find someone to play with!</h2>
+                  <h2>It easy to find someone to meet with!</h2>
                   <ol className={steps__list}>
                     <li>Set up your account</li>
                     <li>Post an event to meet</li>
-                    <li>Wait for players to join you</li>
-                    <li>Meet your players to play with</li>
+                    <li>Wait for people to join you</li>
+                    <li>Meet your people to play with</li>
                   </ol>
                 </div>
               </div>
@@ -83,7 +83,7 @@ class Home extends Component{
                 <img src={HowitworkImg1} className={howItWork__imgReverse} alt="HowitworkImg1" />
                 <div className={howItWork__text}>
                   <h2>Search for Event</h2>
-                  <p>You can find any sport event that was post by player to join</p>
+                  <p>You can find any event that was post by person to join</p>
                   <Button className="primary-color marginB-2" component={Link} to="/events" variant="contained" size="large">
                     See Events
                   </Button>
@@ -96,7 +96,7 @@ class Home extends Component{
                 <img src={HowitworkImg2} alt="HowitworkImg2" />
                 <div className={howItWork__text}>
                   <h2>Create an Event</h2>
-                  <p>You can create event so that any player to join you to play together</p>
+                  <p>You can create event so that any person to join you to meet together</p>
                   <Button className="primary-color" component={Link} to="/create-event" variant="contained" size="large">
                     Post Event
                   </Button>

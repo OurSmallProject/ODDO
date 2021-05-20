@@ -32,7 +32,7 @@ class PrivacyPolicy extends Component{
             </li>
             <li>
               <Typography variant="body1">
-                Favorite Sports
+                Favorite types of event
               </Typography>
             </li>
             <li>

@@ -16,7 +16,7 @@ module.exports = function validateProfileInput(data){
     }
     
     if(Validator.isEmpty(data.favoriteSport)){
-        errors.favoriteSport = 'Favorite Sport is required';
+        errors.favoriteSport = 'Favorite Event is required';
     }
     
     return {

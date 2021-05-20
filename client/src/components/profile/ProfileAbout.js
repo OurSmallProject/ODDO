@@ -26,7 +26,7 @@ class ProfileAbout extends Component{
             <Grid item xs={12} sm={6}>
               <Card>
                 <CardContent>
-                  <h3 >Favorite Sports</h3>
+                  <h3 >Favorite Events</h3>
                   {favoriteSport}
                 </CardContent>
               </Card>

@@ -13,7 +13,7 @@ module.exports = function validateProfileInput(data){
     }
     
     if(Validator.isEmpty(data.typeofsport)){
-        errors.typeofsport = 'Type of sport field is required';
+        errors.typeofsport = 'Type of event field is required';
     }
     
     if(!Validator.isNumeric(data.numberofplayer)){
