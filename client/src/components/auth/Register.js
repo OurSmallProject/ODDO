@@ -107,7 +107,7 @@ class Register extends Component{
                     error={errors.password2}
                   />
                   <Typography variant="subtitle2">
-                    By creating an account, you accept FindSport2Play <Link to="/termsofservice">Terms of Service</Link> and <Link to="/privacypolicy">Privacy Policy</Link>
+                    By creating an account, you accept ODDO <Link to="/termsofservice">Terms of Service</Link> and <Link to="/privacypolicy">Privacy Policy</Link>
                   </Typography>
                   <Button
                     className={auth.loading ? "relative" : "relative primary-color marginT-1"}
