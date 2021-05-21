@@ -89,7 +89,6 @@ router.post('/', (req, res) => {
 router.put('/:id/join', (req, res) => {
   let newNotification;
   Event.findById(req.params.id)
-    .populate('user', ['name'])
     .then((event) => {
       if (!event) {
         return res.status(404).json({ error: 'This event is not found' });
@@ -97,36 +96,20 @@ router.put('/:id/join', (req, res) => {
 
       let count = 0;
 
-      for (let i of event.listofplayer) {
-        if (i['id'] === req.user.id) {
-          return res.status(400).json({ error: 'You already join this event' });
-        }
-        count++;
-      }
-
       if (count >= event.numberofplayer) {
         return res.status(400).json({ error: 'This event is full' });
       }
 
-      const userName = req.user.name;
-
       const newPlayer = {
-        id: req.user.id,
-        name: userName,
+        id: '60a6ab2fd6a82d8e2dde0694',
+        name: 'ELina',
       };
 
-      newNotification = new Notification({
-        userID: event.user._id,
-        authorID: req.user.id,
-        authorName: userName,
-        text: 'join your event',
-      });
-
       event.listofplayer.push(newPlayer);
+      //console.log(event);
       return event.save();
     })
     .then((result) => {
-      newNotification.save();
       res.status(200).json({
         msg: 'Success on joining that event',
         event: result,
